@@ -1,6 +1,9 @@
-<footer class="movie-poster">
-    <div class="container">
-        <h1 class="movie-title">{{movie_title}}</h1>
-        <div class="movie-details">
-            <p class="movie-description">{{movie_description}}</p>
-        </div>
+<picture class="card">
+    <source
+       srcset="https://mmi.unilim.fr/~vialatou2/SAE2.03-Vialatou/server/images/{{image}}"
+       media="orentation: portrait"
+       alt="affiche du film "
+        />
+    <img src="https://mmi.unilim.fr/~vialatou2/SAE2.03-Vialatou/server/images/{{image1}}" alt="">
+    <h1 class="card__title">{{titre}}</h1>
+</picture>
