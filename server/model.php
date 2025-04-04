@@ -17,3 +17,13 @@ define("HOST", "localhost");
 define("DBNAME", "vialatou2");
 define("DBLOGIN", "vialatou2");
 define("DBPWD", "vialatou2");
+
+function getAllMovies(){
+    $snx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+    $sql = "SELECT id,name, image FROM Movie";
+    $stmt = $snx->prepare($sql);
+    $stmt->execute();
+    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $res;
+}

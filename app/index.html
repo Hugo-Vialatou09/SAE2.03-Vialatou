@@ -37,7 +37,7 @@
       window.V = {};
       C.getAllMovies = async function (){
         try{
-          let data = await DataMovie.resquestMovies();
+          let data = await DataMovie.requestMovies();
           V.renderMovies(data);
         }catch (error){
           console.error("Erreur lors de la récupération des films :", error);
