@@ -16,6 +16,7 @@
       import { NavBar } from "./component/NavBar/script.js";
       import { Movie } from "./component/Movie/script.js";
       import  { DataMovie } from "./data/dataMovie.js";
+      import { MovieDetail } from "./component/MovieDetail/script.js";
       
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
@@ -28,9 +29,18 @@
         );
       };
 
-      C.start = function () {
-        V.renderNavBar("C.handlerAbout()");
+      C.handlerHome = function () {
         C.getAllMovies();
+      };
+
+      C.start = function () {
+        V.renderNavBar("C.handlerAbout()", "C.handlerHome()");
+        C.getAllMovies();
+      };
+
+      C.handlerDetail = async function (movieId) {
+          let movieData = await DataMovie.requestMovieDetails(movieId); 
+          V.renderMovieDetail(movieData); 
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
@@ -50,15 +60,21 @@
        * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
        * formaté par le composant NavBar.
        */
-      V.renderNavBar = function (hAbout) {
+      V.renderNavBar = function (hAbout, hHome) {
         let header = document.querySelector("#header");
-        header.innerHTML = NavBar.format(hAbout);
+        header.innerHTML = NavBar.format(hAbout, hHome);
       };
 
       V.renderMovies = function (movies) {
   let content = document.querySelector("#content");
   content.innerHTML = Movie.format(movies);
 };
+
+V.renderMovieDetail = function (movieData) {
+        let content = document.querySelector("#content");
+        content.innerHTML = MovieDetail.format(movieData);
+      };
+
 
       C.start(); // Démarre l'application
     </script>

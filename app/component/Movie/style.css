@@ -1,0 +1,68 @@
+#content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 2rem;
+
+}
+
+.card {
+    width: 15rem;
+    position: relative; /* Nécessaire pour positionner les éléments internes */
+    overflow: hidden; /* Empêche le flou de dépasser les bords arrondis */
+    border-radius: 8px; /* Applique le même border-radius que l'image */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4; /* Maintain a 3:4 aspect ratio */
+    object-fit: cover;
+    border-radius: 8px; /* Assure que l'image a des bords arrondis */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for the zoom and blur effects */
+}
+
+.card img:hover {
+    transform: scale(1.1); /* Zoom the image to 110% of its original size */
+    cursor: pointer;
+    filter: blur(5px) brightness(0.8); /* Apply a 5px blur and darken the image */
+    transition: transform 0.6s ease, filter 0.6s ease; /* Smooth transitions for both effects */
+}
+
+.card img:active {
+    transform: scale(0.9); /* Reduce the image size to 90% when clicked */
+}
+
+.card__title {
+    font-family: 'Arial', sans-serif; 
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    color: white; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour le texte */
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.3s ease; /* Transition fluide pour l'apparition */
+}
+
+.card:hover .card__title {
+    opacity: 1; /* Affiche le titre lors du survol */
+}   
+
+
+@media (max-width: 768px) {
+    #content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Adjust direction for better stacking on mobile */
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+}

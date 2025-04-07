@@ -1,0 +1,26 @@
+.movie__detail {
+    display: flex; /* Utilise flexbox pour aligner les éléments horizontalement */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    gap: 2rem; /* Ajoute un espace entre l'image et le texte */
+    padding: 2rem; /* Ajoute un peu de padding autour du contenu */
+}
+
+.movie__img {
+    max-width: 40%; /* Limite la largeur de l'image à 40% du conteneur */
+    border-radius: 8px; /* Ajoute des coins arrondis à l'image */
+    object-fit: cover; /* Assure que l'image garde ses proportions */
+}
+
+.movie__text {
+    flex: 1; /* Permet au texte de prendre tout l'espace restant */
+    display: flex;
+    flex-direction: column; /* Aligne les paragraphes verticalement */
+    gap: 1rem; /* Ajoute un espace entre les paragraphes */
+}
+
+.movie__text {
+    font-family: 'Roboto', sans-serif; /* Utilise une police moderne et lisible */
+    font-size: 1rem; /* Définit une taille de police confortable */
+    line-height: 1.5; /* Ajoute de l'espace entre les lignes pour améliorer la lisibilité */
+    color: #333; /* Utilise une couleur de texte agréable pour les yeux */
+}
