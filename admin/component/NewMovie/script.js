@@ -1,4 +1,4 @@
-let templateFile = await fetch('./component/NewMovieForm/template.html');
+let templateFile = await fetch('./component/NewMovie/template.html');
 let template = await templateFile.text();
 
 
@@ -11,4 +11,4 @@ NewMovieForm.format = function(handler){
 }
 
 
-export {NewMovieForm};
+export {NewMovie};
