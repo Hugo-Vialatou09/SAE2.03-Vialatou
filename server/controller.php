@@ -20,3 +20,32 @@
  */
 require("model.php");
 
+function readMoviesController(){
+  // on appelle la fonction de modèle readMovies() pour récupérer les films
+  $movies = getAllMovies();
+    return $movies;
+}
+
+function addController(){
+    
+  $name = $_REQUEST['name'];
+  $director = $_REQUEST['director'];
+  $year = $_REQUEST['year'];
+  $length = $_REQUEST['length'];
+  $description = $_REQUEST['description'];
+  $id_category = $_REQUEST['id_category'];
+  $image = $_REQUEST['image'];
+  $trailer = $_REQUEST['trailer'];
+  $min_age = $_REQUEST['min_age'];
+
+  // Appel de la fonction addMovie déclarée dans model.php pour ajouter un film à la BDD
+  $ok = addMovie($name, $director, $year, $length, $description,$id_category,$image, $trailer, $min_age);
+ 
+  if ($ok!=0){
+      return "$name a été ajouté avec succès";
+    }
+    else{
+      return "Le film n'a pas pu être ajouté";
+    }
+}
+
