@@ -17,7 +17,7 @@
       import { Movie } from "./component/Movie/script.js";
       import  { DataMovie } from "./data/dataMovie.js";
       import { MovieDetail } from "./component/MovieDetail/script.js";
-      
+      import { MovieCategory } from "./component/MovieCategory/script.js";
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
       // Une fois l'application terminée, on pourrait remettre let C.
@@ -45,14 +45,24 @@
 
       // Vue (contient tout ce qui est relatif à l'affichage)
       window.V = {};
-      C.getAllMovies = async function (){
-        try{
-          let data = await DataMovie.requestMovies();
-          V.renderMovies(data);
-        }catch (error){
+      // C.getAllMovies = async function (){
+      //   try{
+      //     let data = await DataMovie.requestMovies();
+      //     V.renderMovies(data);
+      //   }catch (error){
+      //     console.error("Erreur lors de la récupération des films :", error);
+      //   }
+      // }
+
+      C.getAllMovies = async function () {
+        try {
+          let data = await DataMovie.requestMoviesCategory();
+          V.renderMovieCategory(data);
+        } catch (error) {
           console.error("Erreur lors de la récupération des films :", error);
         }
-      }
+      };
+
       /**
        * V.renderNavBar
        *
@@ -75,6 +85,14 @@ V.renderMovieDetail = function (movieData) {
         content.innerHTML = MovieDetail.format(movieData);
       };
 
+  V.renderMovieCategory = function (data) {
+        let content = document.querySelector("#content");
+        let html = ""; 
+        for (let movie of data) {
+          html += MovieCategory.format(movie);
+        }
+        content.innerHTML = html;
+};
 
       C.start(); // Démarre l'application
     </script>

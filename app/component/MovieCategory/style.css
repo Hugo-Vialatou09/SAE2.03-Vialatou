@@ -1,0 +1,32 @@
+.movie__categories {
+    margin: 20px 0; /* Supprime l'alignement horizontal */
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.movie__title {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left; /* Aligne le titre à gauche */
+    margin-bottom: 20px;
+    color: black;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    justify-items: start; /* Aligne les éléments à gauche */
+}
+
+
+
+.movies  :hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
