@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 /** ARCHITECTURE PHP SERVEUR : Rôle du fichier script.php
  * 
  * Ce fichier est celui à qui on adresse toutes les requêtes HTTP.
@@ -68,6 +71,10 @@ if ( isset($_REQUEST['todo']) ){
 
     case 'readMovie' : // Nouveau cas pour récupérer les Catégories d'un film
           $data = readMoviesByCategoryController();
+          break;
+
+    case 'addProfile':
+          $data = addProfileController();
           break;
 
     default: // il y a un paramètre todo mais sa valeur n'est pas reconnue/supportée

@@ -2,7 +2,7 @@ let HOST_URL = "https://mmi.unilim.fr/~vialatou2/SAE2.03-Vialatou";
 
 let DataMovie = {};
 
-DataMovie.request = async function (day) {
+DataMovie.request = async function () {
   let answer = await fetch(HOST_URL + "/server/script.php?todo=getmovie");
   let data = await answer.json();
   return data;

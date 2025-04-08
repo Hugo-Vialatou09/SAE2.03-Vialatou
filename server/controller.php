@@ -74,3 +74,19 @@ function readMoviesByCategoryController() {
       return false; 
   }
 }
+
+function addProfileController(){
+    
+  $name = $_REQUEST['name'];
+  $avatar = $_REQUEST['avatar'];
+  $min_age = $_REQUEST['min_age'];
+
+  $ok = addProfile($name, $avatar, $min_age);
+ 
+  if ($ok!=0){
+      return "$name a été ajouté avec succès";
+    }
+    else{
+      return "Le profile n'a pas pu être ajouté";
+    }
+}
