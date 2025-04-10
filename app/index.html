@@ -33,9 +33,9 @@
       };
 
       C.handlerProfileSelect = function (selectElement) {
-         const selectedProfileId = event.target.value;
+         const selectedProfileId = selectElement.value;
          C.activeProfileId = selectedProfileId; 
- 
+
          const avatarElement = document.getElementById("profile-image");
  
          if (!selectedProfileId) {
@@ -44,11 +44,17 @@
          }
  
          // Sinon, met à jour l'avatar et l'affiche
-         const selectedOption = event.target.options[event.target.selectedIndex];
-         const avatarFileName = selectedOption.getAttribute("data-img") || "default-avatar.png";
-         const avatarUrl = `https://mmi.unilim.fr/~vialatou2/SAE2.03-Vialatou/server/images/${avatarFileName}`
+         const selectedOption =
+          selectElement.options[selectElement.selectedIndex];
+         const avatarFileName = 
+          selectedOption.dataset.img || "default-avatar.png";
+         const avatarUrl = 
+         `https://mmi.unilim.fr/~vialatou2/SAE2.03-Vialatou/server/images/${avatarFileName}`
          avatarElement.src = avatarUrl;
          avatarElement.style.display = "block";
+
+          const age = parseInt(selectedOption.dataset.age, 10 ) || 0;
+          
          C.getAllMovies(); // Appelle la fonction pour récupérer les films
        };
 
@@ -70,23 +76,33 @@
       // Vue (contient tout ce qui est relatif à l'affichage)
       window.V = {};
       
-      // C.getAllMovies = async function (){
-      //   try{
-      //     let data = await DataMovie.requestMovies();
-      //     V.renderMovies(data);
-      //   }catch (error){
-      //     console.error("Erreur lors de la récupération des films :", error);
-      //   }
-      // }
-
+//       C.getAllMovies = async function () {
+//   let data = await DataMovie.requestMovies();
+//   V.renderMovies(data);
+// };
       C.getAllMovies = async function () {
-        try {
-          let data = await DataMovie.requestMoviesCategory();
-          V.renderMovieCategory(data);
-        } catch (error) {
-          console.error("Erreur lors de la récupération des films :", error);
-        }
-      };
+        let content = document.querySelector("#content");
+        console.log("Contenu avant effacement :", content.innerHTML);
+        content.innerHTML = "";
+        const age = C.getSelectedProfileAge();
+        console.log("Âge sélectionné :", age);
+  let data = await DataMovie.requestMoviesCategory(age);
+  V.renderMovieCategory(data);
+};
+
+C.getSelectedProfileAge = function () {
+  const profileSelect = document.querySelector(".navbar__profile-select");
+  if (profileSelect) {
+    const selectedOption = profileSelect.options[profileSelect.selectedIndex];
+    console.log("Attribut data-age :", selectedOption?.dataset.age);
+    if (selectedOption && selectedOption.dataset.age) {
+      const age = parseInt(selectedOption.dataset.age, 10);
+      console.log("Âge sélectionné :", age);
+      return age;
+    }
+  }
+};
+
 
       /**
        * V.renderNavBar
@@ -101,7 +117,8 @@
       };
 
       V.renderMovies = function (movies) {
-  let content = document.querySelector("#content");
+        let content = document.querySelector("#content");
+        content.innerHTML = "";
   content.innerHTML = Movie.format(movies);
 };
 
@@ -112,6 +129,7 @@
 
       V.renderMovieCategory = function (data) {
         let content = document.querySelector("#content");
+        content.innerHTML = "";
         let html = ""; 
         for (let movie of data) {
           html += MovieCategory.format(movie);

@@ -14,10 +14,11 @@ DataMovie.requestMovieDetails = async function (movieId) {
 }
 export {DataMovie};
 
-DataMovie.requestMoviesCategory = async function () {
-    let answer = await fetch(HOST_URL + '/server/script.php?todo=readMovie');
-
+DataMovie.requestMoviesCategory = async function (age) {
+    const url  = HOST_URL + '/server/script.php?todo=readMovie&age=' + age;
+    console.log(url);
+    let answer = await fetch(url);
     let movies = await answer.json();
-    
+    console.log(movies);
     return movies;
 }

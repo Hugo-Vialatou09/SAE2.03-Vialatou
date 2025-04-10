@@ -12,7 +12,8 @@ NavBar.format = async function (hAbout, hHome, profile) {
   let options = "";
   for (let i = 0; i < profile.length; i++) {
     let currentProfile = profile[i];
-    options += `<option value="${currentProfile.id}" data-img="${currentProfile.avatar}">${currentProfile.name}</option>`;
+    console.log("Profil actuel :", currentProfile); // Vérifiez les données
+    options += `<option value="${currentProfile.id}" data-img="${currentProfile.avatar}" data-age="${currentProfile.min_age}">${currentProfile.name}</option>`;
   }
 
   let image = profile[0]?.avatar || "";
