@@ -3,10 +3,21 @@ let template = await templateFile.text();
 
 let NavBar = {};
 
-NavBar.format = function (hAbout, hHome) {
+NavBar.format = async function (hAbout, hHome, profile) {
+  console.log("Profils reçus :", profile); // Vérifiez les données
   let html = template;
   html = html.replace("{{hAbout}}", hAbout);
   html = html.replace("{{hHome}}", hHome);
+
+  let options = "";
+  for (let i = 0; i < profile.length; i++) {
+    let currentProfile = profile[i];
+    options += `<option value="${currentProfile.id}" data-img="${currentProfile.avatar}">${currentProfile.name}</option>`;
+  }
+
+  let image = profile[0]?.avatar || "";
+  html = html.replace("{{profileOptions}}", options);
+  html = html.replace("{{image}}", image);
   return html;
 };
 

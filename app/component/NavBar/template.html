@@ -2,5 +2,12 @@
   <ul class="navbar__list">
     <li class="navbar__item" onclick="{{hAbout}}">About</li>
     <li class="navbar__item" onclick="{{hHome}}">Home</li>
+    <div class="navbar__profile-container">
+      <select class="navbar__profile-select" onchange="C.handlerProfileSelect(this)">
+        <option value="" disabled selected>Choisir un profil</option>
+        {{profileOptions}}
+      </select>
+      <img id="profile-image" src="https://mmi.unilim.fr/~vialatou2/SAE2.03-Vialatou/server/images/{{image}}" alt="Avatar" class="navbar__profile-avatar">
+    </div>
   </ul>
 </nav>

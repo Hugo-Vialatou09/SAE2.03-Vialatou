@@ -101,7 +101,7 @@ function getAllCategories() {
     return $res;
 }
 
-function getMoviesByCategory() {
+function getMoviesByCategory () {
     $cnx = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, DBLOGIN, DBPWD, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
@@ -149,4 +149,13 @@ function addProfile($name, $avatar, $min_age) {
     $stmt->execute();
     $res = $stmt->rowCount();
     return $res; 
+}
+
+function getAllProfile() {
+    $cnx = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, DBLOGIN, DBPWD, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+    $sql = "SELECT id, name, avatar, min_age FROM Profile";
+    $stmt = $cnx->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
 }

@@ -90,3 +90,8 @@ function addProfileController(){
       return "Le profile n'a pas pu être ajouté";
     }
 }
+
+function readProfileController(){
+  $profile = getAllProfile();
+  return $profile ? $profile : [];    
+} 
