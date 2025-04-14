@@ -81,7 +81,8 @@ function readMoviesByCategoryController() {
 }
 
 function addProfileController(){
-    
+  
+  $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
   $name = $_REQUEST['name'];
   $avatar = $_REQUEST['avatar'];
   $min_age = $_REQUEST['min_age'];
@@ -92,7 +93,7 @@ function addProfileController(){
       return "$name a été ajouté avec succès";
     }
     else{
-      return "Le profile n'a pas pu être ajouté";
+      return "Le profil n'a pas pu être ajouté";
     }
 }
 

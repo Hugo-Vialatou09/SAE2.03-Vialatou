@@ -137,20 +137,22 @@ function getMoviesByCategory ($age) {
     return array_values($categories); // Retourne un tableau indexé
 }
 
-function addProfile($name, $avatar, $min_age) {
+function addProfile($id, $name, $avatar, $min_age) {
     $cnx = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, DBLOGIN, DBPWD);
 
-    $sql = "INSERT INTO Profile (name, avatar, min_age) 
-            VALUES (:name, :avatar, :min_age)";
-
+    $sql = "REPLACE INTO Profile (id, name, avatar, min_age) 
+             VALUES (:id, :name, :avatar, :min_age)";
     $stmt = $cnx->prepare($sql);
 
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':avatar', $avatar);
-    $stmt->bindParam(':min_age', $min_age);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+    $stmt->bindParam(':min_age', $min_age, PDO::PARAM_INT);
+
+    error_log("Executing SQL: $sql with id=$id, name=$name, avatar=$avatar, min_age=$min_age");
 
     $stmt->execute();
-    $res = $stmt->rowCount();
+    $res = $stmt->rowCount(); 
     return $res; 
 }
 
