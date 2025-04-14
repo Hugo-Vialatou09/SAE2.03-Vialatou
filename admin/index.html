@@ -55,19 +55,14 @@
         content.innerHTML += NewMovie.format(handler);
       };
 
-      V.renderAddProfile = function (handler) {
+      V.renderAddProfile = async function (handler) {
         let content = document.querySelector("#addProfile");
-        let profiles = DataProfile.getAllProfile();
+        let profiles = await DataProfile.getAllProfile();
         content.innerHTML = ProfileForm.format(profiles, handler);
         ProfileForm.init();
         console.log(profiles);
 
-        const select = content.querySelector("#profile-selecte");
-        const idfield = content.querySelector("#profile-id");
-        const namefield = content.querySelector("#profile-name");
-        const avatarfield = content.querySelector("#profile-avatar");
-        const minAgefield = content.querySelector("#profile-min_age");
-        
+
       };
 
       C.start();

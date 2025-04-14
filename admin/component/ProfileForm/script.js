@@ -21,7 +21,7 @@ ProfileForm.init = function () {
     const idfield = document.getElementById("profile-id");
     const namefield = document.getElementById("profile-name");
     const avatarfield = document.getElementById("profile-avatar");
-    const minagefield = document.getElementById("profile-min-age");
+    const minagefield = document.getElementById("profile-min_age");
 
     select.addEventListener("change", (event) => {
         const selectedOption = event.target.selectedOptions[0];
