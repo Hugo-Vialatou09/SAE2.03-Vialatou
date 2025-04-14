@@ -59,6 +59,8 @@
         let content = document.querySelector("#addProfile");
         let profiles = DataProfile.getAllProfile();
         content.innerHTML = ProfileForm.format(profiles, handler);
+        ProfileForm.init();
+        console.log(profiles);
 
         const select = content.querySelector("#profile-selecte");
         const idfield = content.querySelector("#profile-id");
