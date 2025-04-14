@@ -2,12 +2,13 @@
     <h1 class="addProfile__title"> Ajouter un Profil</h1>
     <form class="addProfile__form">
         <select  id="profile-selecte" name = "profile" required>
-            <option value="" disabled selected>Profil à modifier</option>
+            <option value=""  selected>Profil à modifier</option>
             {{options}}
         </select>
-        <input type="text" name="name" placeholder="Nom " required>
-        <input type="text" name="avatar" placeholder="Avatar (facultatif)" >
-        <input type="text" name="min_age" placeholder="Age minimum"  required >
+        <input id="profile-name" type="text" name="name" placeholder="Nom " required>
+        <input id="profile-avatar" type="text" name="avatar" placeholder="Avatar (facultatif)" >
+        <input id="profile-min_age" type="text" name="min_age" placeholder="Age minimum"  required >
+        <input id="profile-id" type="hidden" name="id" value="">
         <input onclick="{{handler}}" type="button" value="Ajouter" name="todo">
     </form>
 </div>

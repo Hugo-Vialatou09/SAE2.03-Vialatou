@@ -87,7 +87,7 @@ function addProfileController(){
   $avatar = $_REQUEST['avatar'];
   $min_age = $_REQUEST['min_age'];
 
-  $ok = addProfile($name, $avatar, $min_age);
+  $ok = addProfile($id, $name, $avatar, $min_age);
  
   if ($ok!=0){
       return "$name a été ajouté avec succès";

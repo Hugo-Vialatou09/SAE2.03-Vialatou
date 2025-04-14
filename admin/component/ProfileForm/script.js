@@ -17,7 +17,7 @@ ProfileForm.format = function(profiles, handler){
 }
 
 ProfileForm.init = function () {
-    const select = document.getElementById("profile-select");
+    const select = document.getElementById("profile-selecte");
     const idfield = document.getElementById("profile-id");
     const namefield = document.getElementById("profile-name");
     const avatarfield = document.getElementById("profile-avatar");
@@ -35,3 +35,5 @@ ProfileForm.init = function () {
     };
 
 export {ProfileForm};
+
+
