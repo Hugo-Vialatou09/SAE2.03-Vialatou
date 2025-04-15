@@ -23,4 +23,4 @@ let templateFile = await fetch("./component/Favorites/template.html");
      return liHtml;
  }
  
- export {Fav};
+ export { Fav };

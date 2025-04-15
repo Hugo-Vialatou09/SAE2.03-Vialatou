@@ -2,7 +2,7 @@
   <ul class="navbar__list">
     <li class="navbar__item" onclick="{{hAbout}}">About</li>
     <li class="navbar__item" onclick="{{hHome}}">Home</li>
-    <li class="navbar__item" onclick="C.ShowFavorites">Favorites</li>
+    <li class="navbar__item" onclick="C.ShowFavorites(C.getSelectedProfileId())">Favorites</li>
     <div class="navbar__profile-container">
       <select class="navbar__profile-select" onchange="C.handlerProfileSelect(this)">
         <option value="" data-age="18" disabled selected>Choisir un profil</option>

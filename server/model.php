@@ -197,3 +197,23 @@ function isFavorite($profile_id, $movie_id) {
     $stmt->execute();
     return $stmt->fetchColumn() > 0;
 }
+
+// function removeFavorites ( $profile_id, $movie_id){
+//     $cnx = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, DBLOGIN, DBPWD, [
+//         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+//     ]);
+//     $sql = "DELETE FROM Favorites WHERE profile_id = :profile_id AND movie_id = :movie_id";
+//     $stmt = $cnx->prepare($sql);
+//     $stmt->bindParam(':profile_id', $profile_id, PDO::PARAM_INT);
+//     $stmt->bindParam(':movie_id', $movie_id, PDO::PARAM_INT);
+//     $stmt->execute();
+//     $rowCount = $stmt->rowCount();
+
+//     // Log pour vérifier le résultat
+//     error_log("Suppression de favori : profile_id=$profile_id, movie_id=$movie_id, lignes affectées=$rowCount");
+
+//     return $rowCount;
+
+
+
+// }

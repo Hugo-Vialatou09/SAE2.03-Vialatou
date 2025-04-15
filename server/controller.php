@@ -110,15 +110,21 @@ function addFavoriteController(){
       return "Le film est déjà dans vos favoris.";
   }
 
-  $ok = addFavorite($profile_id, $movie_id);
+  $ok = addFavorites($profile_id, $movie_id);
   return $ok ? "Le film a été ajouté à vos favoris." : "Erreur lors de l'ajout aux favoris.";
 }
 
-function addFavorite(){
-  return $ok ? "Le film a été ajouté aux favoris" : "Le film n'a pas pu être ajouté aux favoris";
-}
 
 function getFavoritesController(){
   $profile_id = $_REQUEST['profile_id'];
    return getFavorites($profile_id);  
+}
+
+function removeFavoritesController(){
+    $profile_id = $_REQUEST['profile_id'];
+    $movie_id = $_REQUEST['movie_id'];
+}
+
+function removeFavorites(){
+  return $ok ? "Le film a été supprimé des favoris" : "Le film n'a pas pu être supprimé des favoris";
 }

@@ -56,12 +56,12 @@
     opacity: 1; /* Affiche le titre lors du survol */
 }   
 
-.favorite-button{
-    cursor: pointer;    
-}
+.card__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
 
-.favorite-button_disabled {
-    cursor: pointer;
 }
 
 @media (max-width: 768px) {
