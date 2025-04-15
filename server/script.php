@@ -81,6 +81,14 @@ if ( isset($_REQUEST['todo']) ){
     case 'getAllProfile':
           $data = getAllProfileController();
           break;      
+     
+     case 'addFavorite':
+          $data = addFavoriteController();
+          break;
+      
+      case 'getFavorites':
+          $data = getFavoritesController();
+          break;
     
 
 

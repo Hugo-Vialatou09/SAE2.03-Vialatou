@@ -19,6 +19,7 @@
       import { MovieDetail } from "./component/MovieDetail/script.js";
       import { MovieCategory } from "./component/MovieCategory/script.js";
       import { DataProfile } from "./data/dataProfile.js";
+      import { Fav } from "./component/Favorites/script.js";
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
       // Une fois l'application terminée, on pourrait remettre let C.
@@ -103,6 +104,35 @@ C.getSelectedProfileAge = function () {
   }
 };
 
+C.getSelectedProfileId = function () {
+        const profileSelect = document.querySelector(".navbar__profile-select");
+        if (profileSelect) {
+          return profileSelect.value || null; // Retourne l'ID ou null si aucun profil n'est sélectionné
+        }
+        return null;
+      };
+
+
+C.addFavorite = async function ( profileId, movieId){
+  profileId = profileId || C.getSelectedProfileId();
+
+  if ( !profileId) {
+    alert("Veuillez sélectionner un profil avant d'ajouter un film aux favoris.");
+    return;
+  }
+}
+
+C.ShowFavorites = async function (profileId) {
+  profileId = profileId || C.getSelectedProfileId();
+
+  if (!profileId) {
+    alert("Veuillez sélectionner un profil avant de voir les favoris.");
+    return;
+  }
+  let favorites = await DataMovie.getFavorites(profileId);
+  V.renderFavorites(favorites);
+}
+
 
       /**
        * V.renderNavBar
@@ -111,9 +141,9 @@ C.getSelectedProfileAge = function () {
        * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
        * formaté par le composant NavBar.
        */
-      V.renderNavBar =  async function (hAbout, hHome, profile) {  
+      V.renderNavBar =  async function (hAbout, hHome, profile, favorites) {  
         let header = document.querySelector("#header");
-        header.innerHTML = await NavBar.format(hAbout, hHome, profile);
+        header.innerHTML = await NavBar.format(hAbout, hHome, profile, favorites);
       };
 
       V.renderMovies = function (movies) {
@@ -136,6 +166,23 @@ C.getSelectedProfileAge = function () {
         }
         content.innerHTML = html;
 };
+
+
+      V.renderFavorites = function (favorites) {
+        let content = document.querySelector("#content");
+        content.innerHTML = "";
+        if ( favorites.length === 0) {
+          content.innerHTML = "<p>Aucun film favori trouvé.</p>";
+          return;
+        }
+        let favoriteHtml = "<div class='favorites'>";
+          for ( let i = 0; i < favorites.length; i++) {
+            let fav = favorites[i];
+            favoriteHtml += `<div class="favorite-item">${Fav.formatLi(fav)}</div>`;
+          }
+          favoriteHtml += "</div>";
+          content.innerHTML = favoriteHtml;
+      };
 
       C.start(); // Démarre l'application
     </script>
