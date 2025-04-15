@@ -56,8 +56,13 @@
     opacity: 1; /* Affiche le titre lors du survol */
 }   
 
+.favorite-button{
+    cursor: pointer;    
+}
 
-
+.favorite-button_disabled {
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
     #content {

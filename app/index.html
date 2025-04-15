@@ -114,12 +114,16 @@ C.getSelectedProfileId = function () {
 
 
 C.addFavorite = async function ( profileId, movieId){
+  
   profileId = profileId || C.getSelectedProfileId();
 
   if ( !profileId) {
     alert("Veuillez sélectionner un profil avant d'ajouter un film aux favoris.");
     return;
   }
+  let response = await DataMovie.addFavorite(profileId, movieId);
+  alert(response);
+  C.getAllMovies();
 }
 
 C.ShowFavorites = async function (profileId) {

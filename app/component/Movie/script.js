@@ -21,8 +21,8 @@ Movie.format = function (movies, profileId, favorites) {
             }
         }
         const favoriteButton = isFavorite 
-        ? `<button disabled>Favori</button>`
-        : `<button onclick="C.addFavorite(${profileId}, ${movie.id})">Ajouter aux favoris</button>`;
+        ? `<button class="Favorite-button_disabled" disabled>Favori</button>`
+        : `<button class:"Favorite-button" onclick="C.addFavorite(${profileId}, ${movie.id})">Ajouter aux favoris</button>`;
         movieHtml += favoriteButton; 
         html += movieHtml;
     }
