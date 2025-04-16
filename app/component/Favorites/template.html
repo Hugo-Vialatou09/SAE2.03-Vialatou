@@ -1,4 +1,7 @@
-<div>
-    <img src="../server/images/{{image}}"/>
-    <h1 onclick="{{handler}}">{{name}}</h1>
+<div class="favorite">
+    <div>
+        <img src="../server/images/{{image}}" alt="{{name}}">
+        <h1 onclick="{{handler}}">{{name}}</h1>
+        <button class="remove-favorite" onclick="C.removeFavorite(C.getSelectedProfileId(),'{{id}}')">Supprimer des favoris</button>
+    </div>
 </div>

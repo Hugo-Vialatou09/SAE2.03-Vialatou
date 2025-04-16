@@ -120,11 +120,9 @@ function getFavoritesController(){
    return getFavorites($profile_id);  
 }
 
-function removeFavoritesController(){
-    $profile_id = $_REQUEST['profile_id'];
-    $movie_id = $_REQUEST['movie_id'];
-}
-
-function removeFavorites(){
+function removeFavoriteController(){
+  $profile_id = $_REQUEST['profile_id'];
+  $movie_id = $_REQUEST['movie_id'];
+  $ok = removeFavorites($profile_id, $movie_id);
   return $ok ? "Le film a été supprimé des favoris" : "Le film n'a pas pu être supprimé des favoris";
 }

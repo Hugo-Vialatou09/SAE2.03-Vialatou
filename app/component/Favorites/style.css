@@ -1,0 +1,29 @@
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.favorite-item img {
+    width: 300px;  /* Largeur augmentée */
+    height: 450px; /* Hauteur augmentée */
+    
+}
+
+.remove-favorite {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: auto;
+    transition: background-color 0.3s ease;
+}
+
+.remove-favorite:hover {
+    background-color: #b2070f;
+}   

@@ -1,32 +1,99 @@
 #content {
     display: flex;
-    flex-direction: column; /* Change la direction pour empiler les éléments */
+    flex-direction: column;
 }
+
 .movie__categories {
     display: flex;
-    flex-direction: column; /* Change la direction pour empiler les éléments */
-    margin: 20px 0;
-    padding: 20px;
-    max-width: 1200px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    margin: 1.25rem 0;
+    max-width: 100%;
+    background-color: black;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .movie__title {
     font-family: 'Arial', sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: left;
-    margin-bottom: 20px;
-    color: black;
+    margin-bottom: 1.25rem;
+    padding-left: 0.75rem;
+    color: white;
 }
 
 .movies {
     display: flex;
     flex-direction: row;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 10px;
-    justify-items: start;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    padding: 10px 40px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    align-items: center; /* Centre verticalement tous les éléments */
+}
+
+.movies::-webkit-scrollbar {
+    display: none;
+}
+
+/* Conteneur pour chaque film */
+.movies .card {
+    flex: 0 0 15rem; /* Taille fixe sans rétrécissement */
+    height: 22.5rem; /* Hauteur fixe pour tous les conteneurs */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Cache les débordements */
+    border-radius: 4px; /* Coins arrondis optionnels */
+}
+
+.movies img {
+    width: 15rem;  /* Largeur fixe */
+    height: 22.5rem; /* Hauteur fixe */
+    object-fit: cover; /* Remplit l'espace sans déformer, peut couper les bords */
+    object-position: center; /* Centre l'image */
+    transition: transform 0.3s ease;
+}
+
+.movies img:hover {
+    transform: scale(1.05);
+}
+
+/* Boutons de navigation */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(229, 9, 20, 0.8);
+}
+
+.carousel-nav.prev {
+    left: 5px;
+}
+
+.carousel-nav.next {
+    right: 5px;
 }

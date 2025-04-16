@@ -7,14 +7,15 @@ let templateFile = await fetch("./component/Favorites/template.html");
  let Fav = {};
  
  Fav.format = function (favoriteData) {
-     let html = template;
- 
-     html = html.replace("{{image}}", favoriteData.image || "default-image.png");
-     html = html.replace("{{name}}", favoriteData.name ? favoriteData.name : "Nom inconnu");
-     html = html.replace(/{{id}}/g, favoriteData.id);
-     html = html.replace("{{handler}}", `C.handlerDetail(${favoriteData.id})`);
-     return html;
- };
+    let html = template;
+    
+
+    html = html.replace("{{image}}", favoriteData.image || "default-image.png");
+    html = html.replace("{{name}}", favoriteData.name ? favoriteData.name : "Nom inconnu");
+    html = html.replace(/{{id}}/g, favoriteData.id);
+    html = html.replace("{{handler}}", `C.handlerDetail(${favoriteData.id})`);
+    return html;
+};
  
  Fav.formatLi = function (favoriteData) {
      let favoriteContent = Fav.format(favoriteData);
@@ -22,5 +23,8 @@ let templateFile = await fetch("./component/Favorites/template.html");
      liHtml = liHtml.replace("{{favorite}}", favoriteContent);
      return liHtml;
  }
+ 
+
+ 
  
  export { Fav };

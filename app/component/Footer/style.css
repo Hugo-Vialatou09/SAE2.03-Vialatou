@@ -1,0 +1,88 @@
+.footer {
+    background-color: rgb(26, 26, 26);
+    color: #999;
+    padding: 2rem 0;
+    border-top: 1px solid #333;
+}
+
+.footer__container {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 2rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.footer__section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+}
+
+.footer__section h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer__section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer__section a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__section a:hover {
+    color: #e50914;
+    color: white;
+}
+
+.footer__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #e50914;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+@media (max-width: 768px) {
+    .footer__container {
+        flex-direction: column;
+    }
+    
+    .footer__section {
+        margin-bottom: 2rem;
+    }
+}

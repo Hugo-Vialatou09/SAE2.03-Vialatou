@@ -1,21 +1,59 @@
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
   color: var(--color-fg);
-  background-color: var(--color-bg);
+  background-color: rgb(26, 26, 26);
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.03em;
+}
 
-  .navbar__item {
-    --_offset: 0.2rem;
-    padding: 0.5rem 1rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.1rem;
-    text-underline-offset: var(--_offset);
-    cursor: pointer;
-    transition: text-underline-offset 0.2s ease-in-out;
-    &:hover {
-      --_offset: 0.5rem;
-    }
-  }
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  font-weight: bold;
+}
+
+.navbar__list > :last-child {
+  margin-left: auto;
+}
+
+.navbar__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.navbar__item:hover {
+  opacity: 0.6;
+}
+
+.navbar__profile-container {
+  display: flex;
+  gap: 1rem;
+}
+
+
+.navbar__logo-img {
+  width: 120px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
 }

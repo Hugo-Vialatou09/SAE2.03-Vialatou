@@ -1,6 +1,10 @@
 <div class="movie__categories">
     <h1 class="movie__title"> {{categoryName}} </h1>
-    <div class="movies">
-        {{movieCard}}
+    <div class="movies-container">
+        <button class="carousel-nav prev" onclick="scrollCarousel(this, 'left')">&lt;</button>
+        <div class="movies" id="carousel-{{categoryId}}">
+            {{movieCard}}
+        </div>
+        <button class="carousel-nav next" onclick="scrollCarousel(this, 'right')">&gt;</button>
     </div>
 </div>

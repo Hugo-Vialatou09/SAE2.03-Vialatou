@@ -37,3 +37,11 @@ DataMovie.addFavorite = async function (profileId, movieId) {
     let response = await answer.json();
     return response;
 };
+
+DataMovie.removeFavorite = async function (profileId, movieId) {
+    const url = `${HOST_URL}/server/script.php?todo=removeFavorites&profile_id=${profileId}&movie_id=${movieId}`;
+    console.log("URL de la requête de suppression de favori :", url);
+    let answer = await fetch(url);
+    let response = await answer.json();
+    return response;
+}
