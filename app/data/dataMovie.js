@@ -45,3 +45,11 @@ DataMovie.removeFavorite = async function (profileId, movieId) {
     let response = await answer.json();
     return response;
 }
+
+DataMovie.requestMomentMovies = async function () {
+    const url = HOST_URL + '/server/script.php?todo=getMomentMovies';
+    let answer = await fetch(url);
+    let movies = await answer.json();
+    return movies;
+  };
+  

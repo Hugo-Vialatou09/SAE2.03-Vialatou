@@ -1,0 +1,121 @@
+#MomentMovies {
+    background-color: black;
+    padding: 5rem 0;
+}
+
+.MomentMovies-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.MomentMovies-container h1 {
+    font-family: 'Alata', sans-serif;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+.carousel-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.MomentMovies-movies {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    transform: translateX(0);
+}
+
+.movie-item {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.movie-item img {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5rem;
+    gap: 1rem;
+    margin-top: 1rem;
+    color: white;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.movie-info h2 {
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 0.8rem;
+}
+
+.movie-info p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    opacity: 0.8;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-nav.prev {
+    left: 20px;
+}
+
+.carousel-nav.next {
+    right: 20px;
+}

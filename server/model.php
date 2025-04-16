@@ -218,6 +218,13 @@ function removeFavorites ( $profile_id, $movie_id){
 
     return $rowCount;
 
+}
 
-
+function getMomentMovies() {
+    $cnx = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, DBLOGIN, DBPWD);
+    $sql = "SELECT id, name, image, description FROM Movie WHERE is_Moment = TRUE";
+    $stmt = $cnx->query($sql);
+    $movies = $stmt->fetchAll(PDO::FETCH_OBJ);
+    error_log("Films mis en avant récupérés : " . json_encode($movies)); // Ajoutez ce log
+    return $movies;
 }

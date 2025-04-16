@@ -126,3 +126,9 @@ function removeFavoriteController(){
   $ok = removeFavorites($profile_id, $movie_id);
   return $ok ? "Le film a été supprimé des favoris" : "Le film n'a pas pu être supprimé des favoris";
 }
+
+function getMomentMoviesController(){
+  $MomentMovies = getMomentMovies();
+  error_log("Films mis en avant récupérés : " . json_encode($MomentMovies)); // Ajoutez ce log
+  return $MomentMovies ? $MomentMovies : [];
+}

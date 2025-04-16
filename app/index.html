@@ -10,7 +10,11 @@
   <body>
     <header id="header"></header>
 
+    <section id="MomentMovies"></section>
+
     <section id="content"></section>
+
+    
 
     <footer class="footer">
       <div class="footer__container">
@@ -49,6 +53,7 @@
       import { MovieCategory } from "./component/MovieCategory/script.js";
       import { DataProfile } from "./data/dataProfile.js";
       import { Fav } from "./component/Favorites/script.js";
+      import { MomentMovies } from "./component/MomentMovies/script.js";
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
       // Une fois l'application terminée, on pourrait remettre let C.
@@ -96,6 +101,7 @@
         let profile = await DataProfile.read();
         await V.renderNavBar("C.handlerAbout()", "C.handlerHome()", profile);
         C.getAllMovies();
+        C.getMomentMovies();
       };
 
       C.handlerDetail = async function (movieId) {
@@ -180,6 +186,12 @@ C.ShowFavorites = async function (profileId) {
   V.renderFavorites(favorites);
 }
 
+C.getMomentMovies = async function () {
+        let MomentMovies = await DataMovie.requestMomentMovies();
+        V.renderMomentMovies(MomentMovies);
+      }
+
+
 
       /**
        * V.renderNavBar
@@ -230,6 +242,14 @@ C.ShowFavorites = async function (profileId) {
           favoriteHtml += "</div>";
           content.innerHTML = favoriteHtml;
       };
+
+
+      V.renderMomentMovies = function (MomentMoviesData) {
+        let content = document.querySelector("#MomentMovies");
+        let html = MomentMovies.format(MomentMoviesData);
+        content.innerHTML = html;
+      };
+
 
       C.start(); // Démarre l'application
     </script>
