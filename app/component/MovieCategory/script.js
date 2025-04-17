@@ -1,4 +1,4 @@
-import { Movie } from "../Movie/script";
+import { Movie } from "../Movie/script.js";
 
 let templateFile = await fetch('./component/MovieCategory/template.html');
 let template = await templateFile.text();
