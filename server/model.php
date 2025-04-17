@@ -14,9 +14,11 @@
  * DBPWD : Mot de passe pour se connecter à la base de données.
  */
 define("HOST", "localhost");
-define("DBNAME", "vialatou2");
+define("DBNAME", "SAE203");
 define("DBLOGIN", "vialatou2");
-define("DBPWD", "vialatou2");
+define("DBPWD", "090405");
+
+
 
 function getAllMovies(){
     $snx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
