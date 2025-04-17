@@ -3,7 +3,7 @@ let HOST_URL = "../server";
 let DataProfile = {};
 
 DataProfile.read = async function () {
-  let answer = await fetch(HOST_URL + "/server/script.php?todo=readProfile");
+  let answer = await fetch(HOST_URL + "/script.php?todo=readProfile");
   if (!answer.ok) {
     console.error(`Erreur HTTP : ${answer.status}`);
     return []; // Retourne un tableau vide en cas d'erreur HTTP

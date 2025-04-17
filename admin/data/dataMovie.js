@@ -3,7 +3,7 @@ let HOST_URL = "../server";
 let DataMovie = {};
 
 DataMovie.request = async function () {
-  let answer = await fetch(HOST_URL + "/server/script.php?todo=getmovie");
+  let answer = await fetch(HOST_URL + "/script.php?todo=getmovie");
   let data = await answer.json();
   return data;
 };
@@ -28,7 +28,7 @@ DataMovie.addMovie = async function (fdata) {
     method: "POST",
     body: fdata,
   };
-  let answer = await fetch(HOST_URL + "/server/script.php?todo=addMovie", config);
+  let answer = await fetch(HOST_URL + "/script.php?todo=addMovie", config);
   let data = await answer.json();
   return data;
 };
